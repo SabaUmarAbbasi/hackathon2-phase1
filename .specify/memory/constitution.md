@@ -1,55 +1,74 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+# Sync Impact Report
+- Version change: null → 1.0.0
+- List of modified principles:
+  - [PRINCIPLE_1_NAME] → I. Mandatory Spec-Driven Development
+  - [PRINCIPLE_2_NAME] → II. Agent Behavior Rules
+  - [PRINCIPLE_3_NAME] → III. Phase Governance (Scope Lock)
+  - [PRINCIPLE_4_NAME] → IV. Technology constraints
+  - [PRINCIPLE_5_NAME] → V. Structure & Organization
+  - [PRINCIPLE_6_NAME] → VI. Quality Principles
+- Added sections: Phase I Governance, Success Definition
+- Templates requiring updates:
+  - ✅ .specify/templates/plan-template.md (Logic alignment)
+  - ✅ .specify/templates/spec-template.md (Logic alignment)
+  - ✅ .specify/templates/tasks-template.md (Logic alignment)
+- Follow-up TODOs: None
+-->
+# the-todo-app Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Mandatory Spec-Driven Development
+Spec-driven development is non-negotiable. All work MUST follow this exact order: Constitution → Specs → Plan → Tasks → Implement.
+- No agent may write code without an approved specification.
+- No implementation may begin without an approved plan and task breakdown.
+- Refinement and changes must occur at the spec level, never directly in code.
+- Specs are the single source of truth.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Agent Behavior Rules
+All agents (Claude Code or otherwise) MUST obey:
+- NO manual coding by humans.
+- NO feature invention or assumptions beyond written specs.
+- NO deviation from approved requirements.
+- NO future-phase features allowed in Phase I.
+- All outputs must be traceable to specs.
+- Any ambiguity must be resolved by updating specs, not code.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Phase Governance (Scope Lock)
+Phase I includes ONLY: In-memory task storage, Command-line interface, and Basic CRUD (Add, View, Update, Delete, Toggle Complete).
+- Phase I must remain simple and synchronous.
+- NO persistence (no files, no database), NO async, NO API, NO UI, NO networking.
+- Future phases MUST NOT leak into Phase I.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Technology Constraints
+- **Required Stack**: Python 3.13+, UV for environment and dependency management.
+- **Explicitly Disallowed**: Databases, File storage, Web frameworks, Frontend frameworks, External APIs.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Project Structure Rules
+The repository MUST maintain:
+- `/specs/`: Constitution and specification history.
+- `/src/`: Python source code only.
+- `README.md`: Setup and usage instructions.
+- `CLAUDE.md`: Claude Code execution rules.
 
-### [PRINCIPLE_6_NAME]
-
-
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### VI. Quality Principles
+All generated code MUST follow:
+- Clean architecture and clear separation of concerns.
+- Readable and maintainable Python code with meaningful naming.
+- Deterministic behavior and proper error handling.
+- CLI-friendly user experience.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Procedure
+This constitution remains stable throughout Phase I. It overrides all other documents and can only be changed through an explicit constitution revision.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Success Definition (Phase I)
+Phase I is successful ONLY IF:
+- All 5 basic features work correctly (Add, View, Update, Delete, Toggle).
+- The application runs entirely in memory with CLI output reflecting status correctly.
+- All work follows the mandatory SDD flow.
+- No manual coding was performed.
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-31 | **Last Amended**: 2025-12-31

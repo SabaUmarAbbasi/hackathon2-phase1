@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.specify/scripts/powershell/create-phr.sh:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(set PYTHONPATH=.)"
+    ]
+  }
+}
